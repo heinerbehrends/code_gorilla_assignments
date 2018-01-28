@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>numbers</th>
+      <th>second power</th>
+      <th>third power</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(function(){
+      function powerOf(number, power) {
+        var result = number;
+        for (var i=0; i<power-1; i++) {
+          result = result * number;
+        }
+        return result
+      }
+      function getPowerOfArray(array, power) {
+        var resultArray = [];
+        for (var i = 0; i<array.length; i++) {
+          resultArray.push(powerOf(array[i],power));
+        }
+        return resultArray;
+      }
+      var oneToTen = [1,2,3,4,5,6,7,8,9,10];
+      var squareArray = getPowerOfArray(oneToTen, 2);
+      var thirdPowerArray = getPowerOfArray(oneToTen, 3);
+
+      var first_column = $("tr td:first-child");
+      var second_column = $("tr td:nth-child(2)");
+      var third_column = $("tr td:nth-child(3)");
+
+      first_column.each(function(index) {
+        $(this).text(oneToTen[index]);
+      })
+      second_column.each(function(index) {
+        $(this).text(squareArray[index]);
+      })
+      third_column.each(function(index) {
+        $(this).text(thirdPowerArray[index]);
+      })
+    });
+  </script>
+</body>
+</html>
