@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var resultString = "";
+    for (var i=1; i<101; i++) {
+      var woofMeow = "";
+      if (i % 3 === 0 || i % 5 === 0) {
+        if (i % 3 === 0) {
+          woofMeow += "Woof";
+        }
+        if (i % 5 === 0) {
+          woofMeow += "Meow";
+        }
+        resultString += woofMeow + "<br>";
+      }
+      else {
+        resultString += i + "<br>";
+      }
+    }
+    document.body.innerHTML = resultString;
+  </script>
+</body>
+</html>

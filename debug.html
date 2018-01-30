@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /*
+  * Function to seperate a string based on a delimiter
+  *
+  * @param string str
+  * The string that needs to be splitted
+  *
+  * @param string delimiter
+  * The string where the original string splits
+  *
+  * @return array
+  * Returns array that is split on the delimiter
+  */
+  function seperateCommaSeperatedString(str,delimiter){
+    return str.split(delimiter)
+  }
+  /*
+  * Function for generating numbers in a sequence.
+  *
+  * @param int start
+  * Specifies the starting number
+  *
+  * @param int limit
+  * Specifies the maximum number
+  *
+  * @param int step
+  * Specifies the interval between each number
+  *
+  *
+  * @return string
+  * Returns an array of stringified numbers
+  *
+  * @example
+  * console.log(series(0,10,2));
+  * should return ['0,'2','4','6','8','10']
+  */
+
+  function series(start, limit, step) {
+    var str = ""+start;
+    for (var i=start+step; i<=limit; i=i+step) {
+      str += ","+i;
+    }
+    return seperateCommaSeperatedString(str,",");
+  }
+  /*
+  * Compares 2 values and returns the result
+  *
+  * @param mixed output_a
+  * @param mixed output_b
+  * @return boolean
+  *
+  */
+  function checkOutput(a, b) {
+  if (a === b) {
+     console.log("Match! You succeeded");
+     return true;
+   }
+  else if (a == null || b == null) {
+     console.log("Fail!");
+     return false;
+   }
+  else if (a.length != b.length) {
+     console.log("Fail!");
+     return false;
+   }
+
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) {
+       console.log("Fail!");
+       return false;
+     }
+  }
+  console.log("Match! You succeeded");
+  return true;
+}
+
+  var program_output = series(0,10,2);
+  var expected_output = ["0","2","4","6","8","11"];
+  console.log(program_output);
+  console.log(expected_output);
+  checkOutput(program_output,expected_output);
+  program_output = series(0,10,3);
+  expected_output = ['0','3','6','9'];
+  checkOutput(program_output,expected_output);
+  </script>
+</body>
+</html>
